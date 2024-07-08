@@ -10,7 +10,7 @@ cor = "#e22e2e"
 
 class CustomDialog(simpledialog.Dialog):
     def body(self, master):
-        self.geometry("300x100")
+        self.geometry("300x110")
         self.title("Mp3 Downloader")
         self.iconbitmap("./ico.ico")
         self.resizable(False, False)
@@ -19,14 +19,14 @@ class CustomDialog(simpledialog.Dialog):
         self.entry = tk.Entry(master, width=40)
         self.entry.grid(row=1, column=0, pady=0)
         
-         # Mensagem de direitos autorais
-        tk.Label(master, text="© 2024 - Todos os direitos reservados.", bg=cor, fg="white", font=("Arial", 8)).grid(row=2, pady=5)
         return self.entry  # Definir foco inicial
 
     def buttonbox(self):
         box = tk.Frame(self, bg=cor)
         tk.Button(box, text="Download", width=10, command=self.download, bg="#ffffff", fg='black').pack(side=tk.LEFT, padx=5, pady=5)
         tk.Button(box, text="Cancel", width=10, command=self.cancel_dialog, bg="#ffffff", fg='black').pack(side=tk.LEFT, padx=5, pady=5)
+         # Mensagem de direitos autorais
+        tk.Label(self, text="© 2024 - by Nathan Cruz.", bg=cor, fg="white", font=("Arial", 8)).pack()
         box.pack()
 
     def cancel_dialog(self):
