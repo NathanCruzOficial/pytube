@@ -5,6 +5,10 @@ from pytube import YouTube
 import moviepy.editor as mp
 import os
 import re
+import base64
+from io import BytesIO
+from PIL import Image, ImageTk
+from icone_base64 import icon_base64 # Sua string base64 aqui
 
 cor = "#e22e2e"
 
@@ -12,7 +16,14 @@ class CustomDialog(simpledialog.Dialog):
     def body(self, master):
         self.geometry("300x110")
         self.title("Mp3 Downloader")
-        self.iconbitmap("./ico.ico")
+        # Decodifique a string base64
+        icon_data = base64.b64decode(icon_base64)
+        icon_image = Image.open(BytesIO(icon_data))
+
+        # Converta a imagem para um formato que Tkinter possa usar
+        icon = ImageTk.PhotoImage(icon_image)
+        self.iconphoto(True, icon)
+        # self.iconbitmap("./ico.ico")
         self.resizable(False, False)
         self.configure(bg=cor)
         tk.Label(master, text="Insira o link abaixo:", width=25, bg=cor, fg="white", font=font.Font(weight="bold")).grid(row=0, pady=0)
