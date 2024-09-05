@@ -8,7 +8,7 @@ import re
 import base64
 from io import BytesIO
 from PIL import Image, ImageTk
-from icone_base64 import icon_base64 # Sua string base64 aqui
+from img.ico import icon_base64 # Sua string base64 aqui
 
 cor = "#e22e2e"
 
