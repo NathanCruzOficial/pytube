@@ -4,7 +4,7 @@ from io import BytesIO
 from PIL import Image
 
 # img base64
-from img import download, folder, ico
+from img import download, folder, ico, notebook
 
 # Função para decodificar imagens base64
 def decode_base64_to_image(base64_data):
@@ -15,7 +15,8 @@ def decode_base64_to_image(base64_data):
 image_sources = {
     'download': download.image_base64,
     'folder': folder.image_base64,
-    'ico': ico.icon_base64
+    'ico': ico.icon_base64,
+    'image': notebook.image_base64
 }
 # Decodificar as imagens
 decoded_img = {name: decode_base64_to_image(image_data) for name, image_data in image_sources.items()}
